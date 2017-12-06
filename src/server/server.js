@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+require('./config/connection');
 
-
-
+app.use('/public', express.static('dist'))
 
 app.get('/', function (req, res) {
-    res.sendfile(path.resolve('src/client', './index.html'));
+    res.sendFile('client/index.html', {root: path.resolve(__dirname, '../')});
 });
 
 app.listen(3000, function () {
