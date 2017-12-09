@@ -11,6 +11,11 @@ module.exports = {
     module:{
         loaders:[
             {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loader:
+                    'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+            },
+            {
                 test:/\.js/,
                 loader: 'babel-loader',
                 exclude:[/node_modules/],
